@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Planet : MonoBehaviour
+public class Planet : Celestial
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public Planet(){
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Generate(){
+        celestialDistance = Random.Range(5,11);
+        flatAngle = Random.Range(0,Mathf.PI*2);
+        Moon newMoon = new Moon();
+        newMoon.Generate();  
+        this.AddChild(newMoon);
+              
     }
+
+
 }
